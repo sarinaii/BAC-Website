@@ -3,33 +3,11 @@
 import type React from "react"
 import { Footer } from "@/components/footer"
 import { Navigation } from "@/components/navigation"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
-import { Mail, MessageSquare, Send } from "lucide-react"
-import { useState } from "react"
+import { Card, CardContent } from "@/components/ui/card"
+import { Mail, Instagram, Facebook, Coffee } from "lucide-react"
+import Link from "next/link"
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  })
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Create mailto link with form data
-    const subject = encodeURIComponent(formData.subject)
-    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)
-    const mailtoLink = `mailto:analytic@stern.nyu.edu?subject=${subject}&body=${body}`
-    
-    // Open email client
-    window.location.href = mailtoLink
-  }
-
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -46,114 +24,77 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Contact Section */}
+      {/* Contact Options */}
       <section className="py-20 sm:py-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-end">
-            {/* Contact Info */}
-            <div className="lg:col-span-1 space-y-6">
-              <Card className="border-border/60 bg-card hover:shadow-lg transition-shadow">
-                <CardContent className="pt-8 pb-6 px-6">
-                  <div className="h-14 w-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
-                    <Mail className="h-7 w-7 text-primary" />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+            {/* Email */}
+            <Link href="mailto:analytic@stern.nyu.edu">
+              <Card className="border-border/60 bg-card hover:shadow-lg hover:border-primary/50 transition-all h-full cursor-pointer group">
+                <CardContent className="pt-10 pb-8 px-6 text-center h-full flex flex-col items-center justify-center">
+                  <div className="h-16 w-16 rounded-xl bg-primary/10 group-hover:bg-primary/20 flex items-center justify-center mb-6 transition-colors">
+                    <Mail className="h-8 w-8 text-primary" />
                   </div>
-                  <h3 className="font-semibold text-lg mb-3">
+                  <h3 className="font-semibold text-xl mb-3">
                     email<span className="header-period">.</span>
                   </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">analytic@stern.nyu.edu</p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-border/60 bg-card hover:shadow-lg transition-shadow">
-                <CardContent className="pt-8 pb-6 px-6">
-                  <div className="h-14 w-14 rounded-xl bg-accent/10 flex items-center justify-center mb-6">
-                    <MessageSquare className="h-7 w-7 text-accent" />
-                  </div>
-                  <h3 className="font-semibold text-lg mb-3">
-                    social media<span className="header-period">.</span>
-                  </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Follow us on LinkedIn, Instagram, and Twitter for updates and events.
+                    Send us an email at analytic@stern.nyu.edu
                   </p>
                 </CardContent>
               </Card>
-            </div>
+            </Link>
 
-            {/* Contact Form */}
-            <div className="lg:col-span-2">
-              <Card className="border-border/60 bg-card shadow-lg">
-                <CardHeader className="space-y-3">
-                  <CardTitle className="text-3xl">
-                    send us a message<span className="header-period">.</span>
-                  </CardTitle>
-                  <CardDescription className="text-base">
-                    Fill out the form below and we'll get back to you as soon as possible.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid sm:grid-cols-2 gap-6">
-                      <div className="space-y-2">
-                        <Label htmlFor="name">name</Label>
-                        <Input
-                          id="name"
-                          placeholder="your name"
-                          value={formData.name}
-                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          required
-                          className="h-11"
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="email">email</Label>
-                        <Input
-                          id="email"
-                          type="email"
-                          placeholder="your.email@example.com"
-                          value={formData.email}
-                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          required
-                          className="h-11"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="subject">subject</Label>
-                      <Input
-                        id="subject"
-                        placeholder="what's this about?"
-                        value={formData.subject}
-                        onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                        required
-                        className="h-11"
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="message">message</Label>
-                      <Textarea
-                        id="message"
-                        placeholder="tell us more..."
-                        rows={6}
-                        value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        required
-                      />
-                    </div>
-
-                    <Button
-                      type="submit"
-                      size="lg"
-                      className="w-full sm:w-auto font-medium shadow-lg hover:shadow-xl transition-shadow"
-                    >
-                      <Send className="h-4 w-4 mr-2" />
-                      send message
-                    </Button>
-                  </form>
+            {/* Coffee Chat Form */}
+            <Link href="https://docs.google.com/forms/d/e/1FAIpQLSc_APdsRErGy5_wICmFqVPRVJQRrE5Z1fpp-OSBm7eNrQ5RxA/viewform?usp=dialog" /* TODO: Add coffee chat form link here */>
+              <Card className="border-border/60 bg-card hover:shadow-lg hover:border-primary/50 transition-all h-full cursor-pointer group">
+                <CardContent className="pt-10 pb-8 px-6 text-center h-full flex flex-col items-center justify-center">
+                  <div className="h-16 w-16 rounded-xl bg-accent/10 group-hover:bg-accent/20 flex items-center justify-center mb-6 transition-colors">
+                    <Coffee className="h-8 w-8 text-accent" />
+                  </div>
+                  <h3 className="font-semibold text-xl mb-3">
+                    coffee chat<span className="header-period">.</span>
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Schedule a coffee chat with our team
+                  </p>
                 </CardContent>
               </Card>
-            </div>
+            </Link>
+
+            {/* Instagram */}
+            <Link href="https://www.instagram.com/sternbac/?hl=en" target="_blank" rel="noopener noreferrer">
+              <Card className="border-border/60 bg-card hover:shadow-lg hover:border-primary/50 transition-all h-full cursor-pointer group">
+                <CardContent className="pt-10 pb-8 px-6 text-center h-full flex flex-col items-center justify-center">
+                  <div className="h-16 w-16 rounded-xl bg-primary/10 group-hover:bg-primary/20 flex items-center justify-center mb-6 transition-colors">
+                    <Instagram className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-xl mb-3">
+                    instagram<span className="header-period">.</span>
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Follow us @sternbac for updates and events
+                  </p>
+                </CardContent>
+              </Card>
+            </Link>
+
+            {/* Facebook */}
+            <Link href="https://www.facebook.com/SternBAC/" target="_blank" rel="noopener noreferrer">
+              <Card className="border-border/60 bg-card hover:shadow-lg hover:border-primary/50 transition-all h-full cursor-pointer group">
+                <CardContent className="pt-10 pb-8 px-6 text-center h-full flex flex-col items-center justify-center">
+                  <div className="h-16 w-16 rounded-xl bg-accent/10 group-hover:bg-accent/20 flex items-center justify-center mb-6 transition-colors">
+                    <Facebook className="h-8 w-8 text-accent" />
+                  </div>
+                  <h3 className="font-semibold text-xl mb-3">
+                    facebook<span className="header-period">.</span>
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Connect with us on Facebook
+                  </p>
+                </CardContent>
+              </Card>
+            </Link>
           </div>
         </div>
       </section>

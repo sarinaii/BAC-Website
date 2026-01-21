@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
-import { ChevronDown } from "lucide-react"
+import { ChevronDown, Menu, X } from "lucide-react"
 import { ThemeToggle } from "./theme-toggle"
 import { useState } from "react"
 import Image from "next/image"
@@ -11,6 +11,8 @@ import Image from "next/image"
 export function Navigation() {
   const pathname = usePathname()
   const [isProgramsOpen, setIsProgramsOpen] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isMobileProgramsOpen, setIsMobileProgramsOpen] = useState(false)
 
   const links = [
     { href: "/", label: "home" },
@@ -50,7 +52,8 @@ export function Navigation() {
             </div>
           </Link>
 
-          <div className="flex items-center gap-2">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-2">
             <div className="flex gap-1 items-center">
               {links.slice(0, 2).map((link) => (
                 <Link
@@ -124,6 +127,109 @@ export function Navigation() {
               ))}
             </div>
             <ThemeToggle />
+          </div>
+
+          {/* Mobile Navigation */}
+          <div className="flex md:hidden items-center gap-2">
+            <ThemeToggle />
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="p-2 text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-lg transition-all duration-200"
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? (
+                <X className="h-5 w-5" />
+              ) : (
+                <Menu className="h-5 w-5" />
+              )}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu Dropdown */}
+        <div
+          className={cn(
+            "md:hidden absolute left-0 right-0 top-16 bg-card/95 backdrop-blur-md border-b border-border/60 shadow-lg transition-all duration-300 ease-in-out overflow-hidden",
+            isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 border-b-0"
+          )}
+        >
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <div className="flex flex-col gap-1">
+              {links.slice(0, 2).map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={cn(
+                    "px-3.5 py-2.5 text-sm font-medium rounded-lg transition-all duration-200",
+                    pathname === link.href
+                      ? "bg-accent text-accent-foreground shadow-sm"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted/50",
+                  )}
+                >
+                  {link.label}
+                </Link>
+              ))}
+
+              <div>
+                <button
+                  onClick={() => setIsMobileProgramsOpen(!isMobileProgramsOpen)}
+                  className={cn(
+                    "w-full px-3.5 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 flex items-center justify-between",
+                    pathname.startsWith("/programs")
+                      ? "bg-accent text-accent-foreground shadow-sm"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted/50",
+                  )}
+                >
+                  programs
+                  <ChevronDown
+                    className={cn("h-3.5 w-3.5 transition-transform duration-200", isMobileProgramsOpen && "rotate-180")}
+                  />
+                </button>
+
+                <div
+                  className={cn(
+                    "ml-4 space-y-1 transition-all duration-300 ease-in-out overflow-hidden",
+                    isMobileProgramsOpen ? "max-h-64 opacity-100 mt-1" : "max-h-0 opacity-0"
+                  )}
+                >
+                  {programLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => {
+                        setIsMobileMenuOpen(false)
+                        setIsMobileProgramsOpen(false)
+                      }}
+                      className={cn(
+                        "block px-3.5 py-2 text-sm rounded-lg transition-all duration-150",
+                        pathname === link.href
+                          ? "bg-accent/90 text-accent-foreground"
+                          : "text-muted-foreground hover:text-foreground hover:bg-muted/50",
+                      )}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {links.slice(2).map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={cn(
+                    "px-3.5 py-2.5 text-sm font-medium rounded-lg transition-all duration-200",
+                    pathname === link.href
+                      ? "bg-accent text-accent-foreground shadow-sm"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted/50",
+                  )}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </div>

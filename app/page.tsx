@@ -15,7 +15,7 @@ export default function HomePage() {
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-primary/15 to-transparent rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-accent/15 to-transparent rounded-full blur-3xl" />
 
-        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 py-40 sm:py-52 lg:py-64">
+        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-32">
           <div className="max-w-6xl mx-auto space-y-12 text-center">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-[0.95]">
               <span style={{ color: "rgb(72, 134, 159)" }} className="dark-mode-pink">
@@ -30,16 +30,16 @@ export default function HomePage() {
                   backgroundImage: "linear-gradient(to right, rgb(72, 134, 159), rgb(250, 202, 202))",
                 }}
               >
-                <span className="dark-mode-gradient-club">club</span>
+                <span className="dark-mode-gradient-club">club.</span>
               </span>
-              <span
+              {/* <span
                 className="bg-clip-text text-transparent"
                 style={{
                   backgroundImage: "linear-gradient(to right, rgb(72, 134, 159), rgb(250, 202, 202))",
                 }}
               >
                 <span className="dark-mode-gradient-club">.</span>
-              </span>
+              </span> */}
             </h1>
             <p
               className="text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight text-balance"
@@ -62,7 +62,7 @@ export default function HomePage() {
                 size="lg"
                 className="font-semibold shadow-2xl hover:shadow-3xl hover:scale-105 transition-all h-14 px-10 text-lg"
               >
-                <Link href="/programs/freshman-liaison">explore our programs</Link>
+                <Link href="#programs">explore our programs</Link>
               </Button>
               <Button
                 asChild
@@ -78,7 +78,7 @@ export default function HomePage() {
       </section>
 
       {/* Programs Section - Enhanced with better card design */}
-      <section className="py-32 sm:py-40 lg:py-52 relative overflow-hidden">
+      <section id="programs" className="py-16 sm:py-20 lg:py-32 relative overflow-hidden">
         <div className="absolute top-1/4 right-0 w-[700px] h-[700px] bg-gradient-to-bl from-primary/10 to-transparent rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-accent/10 to-transparent rounded-full blur-3xl" />
 
@@ -149,7 +149,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Newsletter Section - Enhanced design */}
+      {/* Newsletter Section - Enhanced design
       <section className="py-28 sm:py-36 border-t border-border/40">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <Card className="max-w-3xl mx-auto border-border/40 bg-card shadow-xl">
@@ -210,7 +210,7 @@ export default function HomePage() {
             </CardContent>
           </Card>
         </div>
-      </section>
+      </section> */}
 
       <Footer />
     </div>

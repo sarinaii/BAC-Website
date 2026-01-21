@@ -32,7 +32,7 @@ export function Footer() {
           {/* Designer credits in the middle */}
           <div className="flex items-center">
             <p className="text-sm text-muted-foreground/60">
-              Website designed by Joseph Cheng and Sarina Li
+              Website designed by Rahul Jayachandran, Joseph Cheng, and Sarina Li
             </p>
           </div>
 

@@ -8,16 +8,26 @@ export default function MachineLearningPage() {
       <Navigation />
 
       <section className="border-b border-border/40 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[rgb(72,134,159)]/30 via-background via-40% to-[rgb(140,191,196)]/30" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[rgb(72,134,159)]/30 via-background via-40% to-[rgb(252,131,135)]/20" />
+        
+        {/* Grid pattern */}
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgb(72,134,159) 2px, transparent 2px), linear-gradient(90deg, rgb(72,134,159) 2px, transparent 2px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
 
         <div
-          className="absolute top-16 right-10 w-96 h-96 border-4 border-[rgb(72,134,159)]/35 rounded-full pointer-events-none animate-pulse"
+          className="hidden md:block absolute top-16 right-10 w-96 h-96 border-4 border-[rgb(72,134,159)]/35 rounded-full pointer-events-none animate-pulse"
           style={{ animationDuration: "3s" }}
         />
-        <div className="absolute bottom-12 left-16 w-80 h-80 border-4 border-[rgb(140,191,196)]/30 rounded-full pointer-events-none" />
-        <div className="absolute top-1/2 right-1/4 w-56 h-56 bg-gradient-to-br from-[rgb(72,134,159)]/15 to-[rgb(140,191,196)]/15 rounded-3xl rotate-12 pointer-events-none" />
+        <div className="hidden md:block absolute bottom-12 left-16 w-80 h-80 border-4 border-[rgb(252,131,135)]/30 rounded-full pointer-events-none" />
+        <div className="hidden md:block absolute top-1/2 right-1/4 w-56 h-56 bg-gradient-to-br from-[rgb(72,134,159)]/15 to-[rgb(252,131,135)]/15 rounded-3xl rotate-12 pointer-events-none" />
         <div
-          className="absolute bottom-1/3 left-1/3 w-40 h-40 border-2 border-[rgb(72,134,159)]/20 rounded-2xl -rotate-12 pointer-events-none animate-pulse"
+          className="hidden md:block absolute bottom-1/3 left-1/3 w-40 h-40 border-2 border-[rgb(252,131,135)]/25 rounded-2xl -rotate-12 pointer-events-none animate-pulse"
           style={{ animationDuration: "4s" }}
         />
 

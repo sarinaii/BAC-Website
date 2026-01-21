@@ -13,10 +13,10 @@ export default function FreshmanLiaisonPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-[rgb(140,191,196)]/30 via-background to-[rgb(250,202,202)]/25" />
 
         {/* Friendly geometric shapes */}
-        <div className="absolute top-10 right-10 w-80 h-80 border-4 border-[rgb(140,191,196)]/40 rounded-3xl rotate-12 pointer-events-none" />
-        <div className="absolute bottom-20 left-10 w-64 h-64 bg-[rgb(250,202,202)]/20 rounded-full pointer-events-none" />
-        <div className="absolute top-1/2 right-1/4 w-48 h-48 border-4 border-[rgb(72,134,159)]/30 rounded-2xl -rotate-6 pointer-events-none" />
-        <div className="absolute bottom-1/3 left-1/3 w-40 h-40 bg-gradient-to-br from-[rgb(140,191,196)]/15 to-[rgb(250,202,202)]/15 rounded-3xl rotate-45 pointer-events-none" />
+        <div className="hidden md:block absolute top-10 right-10 w-80 h-80 border-4 border-[rgb(140,191,196)]/40 rounded-3xl rotate-12 pointer-events-none" />
+        <div className="hidden md:block absolute bottom-20 left-10 w-64 h-64 bg-[rgb(250,202,202)]/20 rounded-full pointer-events-none" />
+        <div className="hidden md:block absolute top-1/2 right-1/4 w-48 h-48 border-4 border-[rgb(72,134,159)]/30 rounded-2xl -rotate-6 pointer-events-none" />
+        <div className="hidden md:block absolute bottom-1/3 left-1/3 w-40 h-40 bg-gradient-to-br from-[rgb(140,191,196)]/15 to-[rgb(250,202,202)]/15 rounded-3xl rotate-45 pointer-events-none" />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-32 sm:py-40 lg:py-52 relative z-10">
           <div className="max-w-5xl pl-8 sm:pl-12 lg:pl-16">

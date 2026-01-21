@@ -10,10 +10,10 @@ export default function QuantTeamPage() {
       <section className="border-b border-border/40 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[rgb(72,134,159)]/20 via-background to-[rgb(252,131,135)]/15" />
 
-        <div className="absolute top-12 right-20 w-88 h-88 border-4 border-[rgb(72,134,159)]/35 rotate-45 pointer-events-none" />
-        <div className="absolute bottom-20 left-10 w-64 h-64 border-4 border-[rgb(252,131,135)]/30 pointer-events-none" />
-        <div className="absolute top-1/3 right-1/4 w-48 h-48 border-2 border-[rgb(72,134,159)]/20 rotate-12 pointer-events-none" />
-        <div className="absolute bottom-1/4 left-1/3 w-40 h-40 bg-[rgb(72,134,159)]/10 rotate-45 pointer-events-none" />
+        <div className="hidden md:block absolute top-12 right-20 w-88 h-88 border-4 border-[rgb(72,134,159)]/35 rotate-45 pointer-events-none" />
+        <div className="hidden md:block absolute bottom-20 left-10 w-64 h-64 border-4 border-[rgb(252,131,135)]/30 pointer-events-none" />
+        <div className="hidden md:block absolute top-1/3 right-1/4 w-48 h-48 border-2 border-[rgb(72,134,159)]/20 rotate-12 pointer-events-none" />
+        <div className="hidden md:block absolute bottom-1/4 left-1/3 w-40 h-40 bg-[rgb(72,134,159)]/10 rotate-45 pointer-events-none" />
 
         <div
           className="absolute inset-0 opacity-[0.04]"

@@ -8,12 +8,12 @@ export default function InsightTeamPage() {
       <Navigation />
 
       <section className="border-b border-border/40 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[rgb(72,134,159)]/25 via-background to-[rgb(72,134,159)]/10" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[rgb(72,134,159)]/25 via-background to-[rgb(252,131,135)]/15" />
 
-        <div className="absolute top-10 right-16 w-96 h-96 border-4 border-[rgb(72,134,159)]/30 pointer-events-none" />
-        <div className="absolute bottom-16 left-12 w-72 h-72 border-4 border-[rgb(72,134,159)]/20 rotate-45 pointer-events-none" />
-        <div className="absolute top-1/3 right-1/3 w-48 h-48 bg-[rgb(72,134,159)]/10 pointer-events-none" />
-        <div className="absolute bottom-1/4 left-1/4 w-56 h-56 border-2 border-[rgb(72,134,159)]/15 rotate-12 pointer-events-none" />
+        <div className="hidden md:block absolute top-10 right-16 w-96 h-96 border-4 border-[rgb(72,134,159)]/30 pointer-events-none" />
+        <div className="hidden md:block absolute bottom-16 left-12 w-72 h-72 border-4 border-[rgb(252,131,135)]/25 rotate-45 pointer-events-none" />
+        <div className="hidden md:block absolute top-1/3 right-1/3 w-48 h-48 bg-gradient-to-br from-[rgb(72,134,159)]/10 to-[rgb(252,131,135)]/10 pointer-events-none" />
+        <div className="hidden md:block absolute bottom-1/4 left-1/4 w-56 h-56 border-2 border-[rgb(252,131,135)]/20 rotate-12 pointer-events-none" />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-32 sm:py-40 lg:py-52 relative z-10">
           <div className="max-w-5xl pl-8 sm:pl-12 lg:pl-16">
